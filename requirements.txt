@@ -12,5 +12,6 @@ beautifulsoup4
 SpeechRecognition
 pydub
 pillow
+tf-keras==2.15.0
 # Add any other dependencies you need for your project here
 # For example, if you need to use a specific version of a library, you can specify it like this: 
