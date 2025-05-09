@@ -10,7 +10,6 @@ pywhatkit
 requests
 beautifulsoup4
 SpeechRecognition
-pyaudio
 pydub
 pillow
 # Add any other dependencies you need for your project here

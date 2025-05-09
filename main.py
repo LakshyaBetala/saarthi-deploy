@@ -4,13 +4,14 @@ from modules.vision import detect_objects_and_direction
 from modules.emotion import analyze_emotion
 from modules.audio import speak
 from modules.search import google_search_summary
-from modules.assistant import continuous_assistant
-from modules.utils import set_camera_url, get_camera_url, listen_command
+from modules.utils import set_camera_url, get_camera_url
 
+import os
 import uvicorn
 
 app = FastAPI()
 
+# ✅ Allow frontend to call backend from anywhere
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -32,7 +33,6 @@ def listen_for_command():
     from modules.assistant import continuous_assistant
     return continuous_assistant()
 
-
 @app.get("/detect_objects")
 def detect_objects():
     url = get_camera_url()
@@ -52,5 +52,7 @@ def speak_text(text: str = Form(...)):
     path = speak(text)
     return {"audio_file": path}
 
+# ✅ Run server using PORT from Render, default to 10000
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
