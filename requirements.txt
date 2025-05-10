@@ -5,6 +5,7 @@ python-dotenv
 requests
 beautifulsoup4
 pillow
+python-multipart
 
 # Vision
 opencv-python
