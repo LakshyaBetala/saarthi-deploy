@@ -12,13 +12,19 @@ import uvicorn
 app = FastAPI()
 
 # ✅ Allow frontend to call backend from anywhere
+origins = [
+    "https://saarthi-deploy.vercel.app",  # ✅ your frontend Vercel domain
+    "http://localhost:3000",              # ✅ for local dev
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.post("/set_camera_url")
 def set_url(ip: str = Form(...)):
