@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { Search, Loader2 } from "lucide-react"
+import { API_BASE_URL } from "@/lib/config"
 
 export default function TextSearch() {
   const [query, setQuery] = useState("")
@@ -34,7 +35,7 @@ export default function TextSearch() {
       const formData = new FormData()
       formData.append("query", query)
 
-      const response = await fetch("http://localhost:8000/search", {
+      const response = await fetch(`${API_BASE_URL}/search`, {
         method: "POST",
         body: formData,
       })

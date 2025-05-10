@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { SmilePlus, Loader2 } from "lucide-react"
+import { API_BASE_URL } from "@/lib/config"
 
 interface EmotionResult {
   emotion: string
@@ -21,7 +22,7 @@ export default function EmotionAnalysis() {
     setEmotionResult(null)
 
     try {
-      const response = await fetch("http://localhost:8000/analyze_emotion", {
+      const response = await fetch(`${API_BASE_URL}/analyze_emotion`, {
         method: "GET",
       })
 

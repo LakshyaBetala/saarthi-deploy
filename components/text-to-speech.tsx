@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { Volume2, Loader2 } from "lucide-react"
+import { API_BASE_URL } from "@/lib/config"
 
 export default function TextToSpeech() {
   const [text, setText] = useState("")
@@ -33,7 +34,7 @@ export default function TextToSpeech() {
       const formData = new FormData()
       formData.append("text", text)
 
-      const response = await fetch("http://localhost:8000/speak", {
+      const response = await fetch(`${API_BASE_URL}/speak`, {
         method: "POST",
         body: formData,
       })

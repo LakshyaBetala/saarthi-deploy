@@ -5,6 +5,7 @@ import { CameraSetup } from "@/components/camera-setup"
 import { ResponseDisplay } from "@/components/response-display"
 import { WelcomeSection } from "@/components/welcome-section"
 import { VoiceWave } from "@/components/voice-wave"
+import { API_BASE_URL } from "@/lib/config"
 
 export default function BharatAssistant() {
   const [cameraConnected, setCameraConnected] = useState(false)
@@ -37,7 +38,7 @@ export default function BharatAssistant() {
     try {
       setLoading(true)
       setError(null)
-      const res = await fetch("http://localhost:8000/assistant/listen")
+      const res = await fetch(`${API_BASE_URL}/assistant/listen`)
       if (!res.ok) throw new Error("Failed to get response from assistant")
       const data = await res.json()
 

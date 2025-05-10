@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { Loader2, Camera } from "lucide-react"
+import { API_BASE_URL } from "@/lib/config";
 
 interface CameraSetupProps {
   onCameraConnected: () => void
@@ -36,7 +37,7 @@ export function CameraSetup({ onCameraConnected }: CameraSetupProps) {
       const formData = new FormData()
       formData.append("ip", ipAddress)
 
-      const response = await fetch("http://localhost:8000/set_camera_url", {
+      const response = await fetch(`${API_BASE_URL}/set_camera_url`, {
         method: "POST",
         body: formData,
       })

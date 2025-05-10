@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { Mic, Loader2 } from "lucide-react"
+import { API_BASE_URL } from "@/lib/config"
 
 export default function VoiceCommand() {
   const [isListening, setIsListening] = useState(false)
@@ -18,7 +19,7 @@ export default function VoiceCommand() {
     setResponse("")
 
     try {
-      const response = await fetch("http://localhost:8000/voice_command", {
+      const response = await fetch(`${API_BASE_URL}/voice_command`, {
         method: "GET",
       })
 
