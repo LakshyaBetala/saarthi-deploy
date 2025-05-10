@@ -1,18 +1,26 @@
+# Core APIs
 fastapi
 uvicorn
 python-dotenv
-opencv-python
-torch
-ultralytics
-deepface
-gtts
-pywhatkit
 requests
 beautifulsoup4
+pillow
+
+# Vision
+opencv-python
+ultralytics==8.3.130
+
+# Audio + Voice
+gtts
+pywhatkit
 SpeechRecognition
 pydub
-pillow
-tf-keras==2.15.0
 
-# Add any other dependencies you need for your project here
-# For example, if you need to use a specific version of a library, you can specify it like this: 
+# Deep learning (compatible with DeepFace)
+tensorflow==2.12.0
+tf-keras==2.12.0
+torch
+deepface==0.0.93
+
+# Optional: For smoother installation on cloud platforms
+setuptools
