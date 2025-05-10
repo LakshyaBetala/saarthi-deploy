@@ -15,6 +15,8 @@ gtts
 pywhatkit
 SpeechRecognition
 pydub
+playsound==1.2.2
+
 
 # Deep learning (compatible with DeepFace)
 tensorflow==2.12.0
@@ -23,3 +25,4 @@ deepface==0.0.93
 
 # Optional: Smoother cloud installation
 setuptools
+
