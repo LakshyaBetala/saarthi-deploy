@@ -5,6 +5,7 @@ from modules.emotion import analyze_emotion
 from modules.audio import speak
 from modules.search import google_search_summary
 from modules.utils import set_camera_url, get_camera_url
+from fastapi.responses import FileResponse
 
 import os
 import uvicorn
@@ -47,10 +48,12 @@ def detect_emotion():
 def search_query(query: str = Form(...)):
     return google_search_summary(query)
 
+
 @app.post("/speak")
 def speak_text(text: str = Form(...)):
-    path = speak(text)
-    return {"audio_file": path}
+    path = speak(text, save_audio=True)
+    return FileResponse(path, media_type="audio/mpeg", filename="output.mp3")
+
 
 # ✅ Run server using PORT from Render, default to 10000
 if __name__ == "__main__":
