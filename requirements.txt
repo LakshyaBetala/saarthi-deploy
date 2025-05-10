@@ -18,9 +18,8 @@ pydub
 
 # Deep learning (compatible with DeepFace)
 tensorflow==2.12.0
-tf-keras==2.12.0
 torch
 deepface==0.0.93
 
-# Optional: For smoother installation on cloud platforms
+# Optional: Smoother cloud installation
 setuptools
